@@ -94,6 +94,11 @@ def h(p1, p2): # Heuristic function
     x2, y2 = p2
     return abs(x1 - x2) + abs(y1 - y2) # Manhattan distance    
 
+# def h2(p1, p2): # Heuristic function
+#     x1, y1 = p1
+#     x2, y2 = p2
+#     return math.sqrt((x1 - x2)**2 + (y1 - y2)**2) # Euclidean distance
+
 def recontruct_path(came_from, current, draw): # Reconstruct the path
     while current in came_from: # While the current spot is in the came from
         current = came_from[current] # Current spot is the came from of the current spot
