@@ -1,10 +1,9 @@
 # Pathfinding-Visualizer
 
-<div align="center">
-    <img src="https://github.com/sujal-goswami/Pathfinding-Visualizer/blob/main/Demo.gif" width="500" height="500">
-</div>  
+| A* Algorithm                                                             | Dijkstra Algorithm                                                                           |
+| ----------------------------------------------------------------------------------| ------------------------------------------------------------------------------------|
+| ![](https://github.com/sujal-goswami/Pathfinding-Visualizer/blob/main/A-star.gif) | ![](https://github.com/sujal-goswami/Pathfinding-Visualizer/blob/main/Dijkstra.gif) |
 
-&nbsp;  
 
 >  Press  **left click** -> source, destination, obstacles
 >  
