@@ -2,28 +2,28 @@ import pygame
 import math
 from queue import PriorityQueue
 
-WIDTH = 500
+WIDTH = 600
 WIN = pygame.display.set_mode((WIDTH, WIDTH))
 pygame.display.set_caption("A* Path Finding Algorithm")
 
-RED = (255, 0, 0) # RGB
-GREEN = (0, 255, 0) # RGB
-BLUE = (0, 255, 0) # RGB
-YELLOW = (255, 255, 0) # RGB
-WHITE = (255, 255, 255) # RGB
-BLACK = (0, 0, 0) # RGB
-PURPLE = (128, 0, 128) # RGB
-ORANGE = (255, 165, 0) # RGB
-GREY = (128, 128, 128) # RGB
-TURQUOISE = (64, 224, 208) # RGB
+RED = (255, 0, 0) 
+GREEN = (0, 255, 0) 
+BLUE = (0, 255, 0) 
+YELLOW = (255, 255, 0) 
+WHITE = (255, 255, 255) 
+BLACK = (0, 0, 0) 
+PURPLE = (128, 0, 128) 
+ORANGE = (255, 165, 0) 
+GREY = (128, 128, 128) 
+TURQUOISE = (64, 224, 208) 
 
 class Spot:
-    def __init__(self, row, col, width, total_rows): # Constructor
+    def __init__(self, row, col, width, total_rows): 
         self.row = row
         self.col = col
         self.x = row * width # Width of the spot
         self.y = col * width # Height of the spot
-        self.color = WHITE # Default color
+        self.color = WHITE 
         self.neighbors = [] # Neighbors of the spot
         self.width = width # Width of the spot
         self.total_rows = total_rows # Total rows
@@ -108,7 +108,7 @@ def recontruct_path(came_from, current, draw): # Reconstruct the path
 
 def algorithm(draw, grid, start, end): # Algorithm
     count = 0
-    open_set = PriorityQueue() # Open set
+    open_set = PriorityQueue() 
     open_set.put((0, count, start)) # Put the start in the open set
     came_from = {} # Came from
     g_score = {spot: float("inf") for row in grid for spot in row} # G score
@@ -138,6 +138,7 @@ def algorithm(draw, grid, start, end): # Algorithm
                 came_from[neighbor] = current # Came from
                 g_score[neighbor] = temp_g_score # G score
                 f_score[neighbor] = temp_g_score + h(neighbor.get_pos(), end.get_pos()) # F score
+                
                 if neighbor not in open_set_hash: # If the neighbor is not in the open set hash
                     count += 1
                     open_set.put((f_score[neighbor], count, neighbor)) # Put the neighbor in the open set
@@ -192,15 +193,15 @@ def get_clicked_pos(pos, rows, width): # Get the clicked position
     return row, col # Return the row and column    
 
 
-def main(win, width): # Main function
-    ROWS = 20 # Number of rows
+def main(win, width):
+    ROWS = 30 # Number of rows
     grid = make_grid(ROWS, width) # Make the grid
 
     start = None # Start
     end = None # End
 
-    run = True # Run
-    while run: # While running
+    run = True 
+    while run: 
         draw(win, grid, ROWS, width) # Draw the grid
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -248,6 +249,6 @@ def main(win, width): # Main function
                     grid = make_grid(ROWS, width) # Make the grid
 
                     
-    pygame.quit() # Quit pygame
+    pygame.quit() 
 
-main(WIN, WIDTH) # Run the main function    
+main(WIN, WIDTH)    
